@@ -1,0 +1,16 @@
+-- +goose Up
+
+CREATE TABLE feeds (
+id VARCHAR(40) NOT NULL,
+name VARCHAR(256) NOT NULL,
+url VARCHAR(256) NOT NULL UNIQUE,
+user_id VARCHAR(40) NOT NULL,
+created_at TIMESTAMP NOT NULL,
+updated_at TIMESTAMP,
+PRIMARY KEY(id),
+FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+
+-- +goose Down
+DROP TABLE feeds;
