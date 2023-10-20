@@ -36,6 +36,10 @@ func main() {
 	app.Post("/api/v1/users", apiConfig.CreateUser)
 	app.Get("/api/v1/users", apiConfig.GetUserByApiKey)
 	app.Post("/api/v1/feeds", apiConfig.CreateFeed)
+	app.Get("/api/v1/feeds", apiConfig.GetAllFeeds)
+	app.Post("/api/v1/feed_follows", apiConfig.CreateFeedFollows)
+	app.Get("/api/v1/feed_follows", apiConfig.GetUserFeedFollows)
+	app.Delete("/api/v1/feed_follows/{id}", apiConfig.DeleteFeedFollow)
 	const PORT = "8080"
 	addr := fmt.Sprintf("127.0.0.1:%s", PORT)
 	fmt.Printf("Server is listening on port %s!", PORT)
